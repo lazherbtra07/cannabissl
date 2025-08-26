@@ -1,39 +1,45 @@
 "use client";
 
 import { FaYoutube, FaInstagram, FaTiktok, FaXTwitter } from "react-icons/fa6";
+import { Card } from "./ui/card";
 
 export default function Newsletter() {
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Handle newsletter subscription
+  };
+
   return (
-    <section className="py-20 px-6 bg-black">
+    <section className="py-20 px-6 bg-black" aria-labelledby="newsletter-heading">
       <div className="w-[80%] mx-auto">
         {/* Main Container */}
-        <div className=" border border-4 border-gray-600 rounded-md p-20 text-center">
+        <Card className="  border-white/10  border-4 care rounded-md p-20 text-center bg-transparent">
           {/* Main Heading */}
-          <h2 className="text-6xl font-bold text-gray-300  text-center mb-10 font-orbitron tracking-wide">
+          <h2 id="newsletter-heading" className="text-6xl font-bold text-gray-300  text-center mb-10 font-orbitron tracking-wide">
             Daily activity is here. Stay updated.
           </h2>
 
           {/* Social Media Icons */}
-          <div className="flex justify-center items-center gap-10 mb-10">
+          <div className="flex justify-center items-center gap-10 mb-10" aria-label="Social media links">
             {/* YouTube */}
-            <div className="w-24 h-24  rounded-md flex items-center justify-center">
+            <a href="https://youtube.com" className="w-24 h-24  rounded-md flex items-center justify-center" aria-label="Visit our YouTube channel">
               <FaYoutube className="w-24 h-24 text-red-600" />
-              </div>
+            </a>
 
             {/* Instagram */}
-            <div className="w-24 h-24 bg-gradient-to-br from-orange-400 via-pink-500 to-purple-600 rounded-md flex items-center justify-center">
+            <a href="https://instagram.com" className="w-24 h-24 bg-gradient-to-br from-orange-400 via-pink-500 to-purple-600 rounded-md flex items-center justify-center" aria-label="Visit our Instagram profile">
               <FaInstagram className="w-20 h-20 text-white" />
-            </div>
+            </a>
 
             {/* TikTok */}
-            <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center">
+            <a href="https://tiktok.com" className="w-24 h-24 bg-white rounded-full flex items-center justify-center" aria-label="Visit our TikTok profile">
               <FaTiktok className="w-20 h-20 text-black" />
-            </div>
+            </a>
 
             {/* X (Twitter) */}
-            <div className="w-24 h-24 bg-white rounded-md flex items-center justify-center">
+            <a href="https://twitter.com" className="w-24 h-24 bg-white rounded-md flex items-center justify-center" aria-label="Visit our X (Twitter) profile">
               <FaXTwitter className="w-20 h-20 text-black" />
-            </div>
+            </a>
           </div>
 
           {/* Subscription Prompt */}
@@ -42,14 +48,16 @@ export default function Newsletter() {
           </p>
 
           {/* Email Input Field */}
-          <div className="flex justify-center">
+          <form onSubmit={handleSubmit} className="flex justify-center">
             <input
               type="email"
               placeholder="email"
+              required
+              aria-label="Enter your email address"
               className="w-full max-w-lg px-10 py-4 text-gray-300 text-3xl border border-gray-600 rounded-full bg-transparent text-white placeholder-gray-400 focus:outline-none focus:border-white transition-colors font-orbitron"
             />
-          </div>
-        </div>
+          </form>
+        </Card>
       </div>
     </section>
   );
