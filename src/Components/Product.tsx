@@ -2,7 +2,7 @@
 "use client";
 
 import Image from "next/image";
-import { ShoppingCart } from "lucide-react";
+import { ShoppingCart, CheckCircle2 } from "lucide-react";
 import { useState } from "react";
 import { Button } from "./ui/button";
 import { useProductContext } from "@/context/ProductContext";
@@ -12,13 +12,30 @@ export default function ProductHero() {
   const unitPrice = 36.9;
   const totalPrice = (unitPrice * quantity).toFixed(1);
   const { addItem } = useProductContext();
+  const [showAlert, setShowAlert] = useState(false);
 
   const handleAddToCart = () => {
     addItem({ id: "dharma-oil", name: "Dharma Oil", price: unitPrice, quantity });
+    setShowAlert(true);
+    window.clearTimeout((window as any).__add_to_cart_to);
+    (window as any).__add_to_cart_to = window.setTimeout(() => setShowAlert(false), 1800);
   };
 
   return (
     <section className="w-full bg-black text-white py-24">
+      {/* Success Alert */}
+      {showAlert && (
+        <div className="fixed top-6 right-6 z-50">
+          <div className="flex items-center gap-3 bg-white text-black rounded-md border border-white/30 px-5 py-4 shadow-xl backdrop-blur-sm">
+            <CheckCircle2 className="size-6" />
+            <div className="tracking-wide">
+              <div className="font-semibold">Added to cart</div>
+              <div className="text-sm opacity-70">Your product was added successfully</div>
+            </div>
+          </div>
+        </div>
+      )}
+
       <div className="container mx-auto flex flex-col md:flex-row items-center  px-6">
         {/* Left side - Product Image */}
         <div className="flex justify-center md:w-1/2">
@@ -49,11 +66,8 @@ export default function ProductHero() {
             embrace your inner duality and find peace in the chaos, the love you withhold is the pain you carry.
           </p>
 
-
-
           {/* Price + Quantity + Add to Cart */}
           <div className="flex flex-col sm:flex-row sm:items-center gap-6 pt-6 border-t border-white/20">
-
             {/* Price */}
             <div className="min-w-[180px] text-center">
               <div className="text-3xl font-bold text-white">€{totalPrice}</div>
@@ -81,7 +95,6 @@ export default function ProductHero() {
               </Button>
             </div>
 
-
             {/* Add to Cart */}
             <Button onClick={handleAddToCart} className="flex items-center gap-4 px-12 py-7 bg-white text-black rounded-md hover:bg-gray-200 transition-colors font-medium text-lg tracking-wide" type="button" size={"lg"}>
               <ShoppingCart className="size-7" />
@@ -96,7 +109,7 @@ export default function ProductHero() {
           <div>
             <Button
               className="px-10 py-6 tracking-wider rounded-full border border-white/40 text-white/70 hover:text-white hover:border-white bg-transparent text-lg font-light"
-
+              
               type="button"
               size={"lg"}
             >

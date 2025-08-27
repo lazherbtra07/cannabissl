@@ -1,4 +1,4 @@
-import Footer from "@/Components/Footer";
+import Footer from "@/Components/layout/Footer";
 import Hero from "@/Components/hero";
 import Newsletter from "@/Components/Newsletter";
 import ProductHero from "@/Components/Product";
@@ -11,7 +11,6 @@ export default function Home() {
   return (
     <div >
 <Hero/>
-
 <ProductHero/>
 <Testimonials/>
 <Newsletter/>

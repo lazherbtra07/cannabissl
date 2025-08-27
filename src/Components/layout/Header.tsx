@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { ShoppingCart } from "lucide-react";
 import { useProductContext } from "@/context/ProductContext";
 
@@ -16,7 +17,7 @@ export default function Header() {
       </span>
 
       {/* Cart Icon */}
-      <button className="p-2 rounded-full hover:bg-white/10 transition" aria-label="Open cart" type="button">
+      <Link href="/cart" className="p-2 rounded-full hover:bg-white/10 transition" aria-label="Open cart">
         <div className="relative">
           <ShoppingCart className="h-8 w-8   text-white" />
           {totalQuantity > 0 && (
@@ -25,7 +26,7 @@ export default function Header() {
             </span>
           )}
         </div>
-      </button>
+      </Link>
     </header>
   );
 }

@@ -6,7 +6,7 @@ import { ShoppingCart } from "lucide-react";
 import { useState } from "react";
 import { FaYoutube } from "react-icons/fa";
 import { useProductContext } from "@/context/ProductContext";
-import Header from "@/Components/Header";
+import Header from "@/Components/layout/Header";
 
 export default function Hero() {
   const [showVideo, setShowVideo] = useState(false);
