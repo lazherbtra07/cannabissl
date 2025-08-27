@@ -12,8 +12,8 @@ export default function CartPage() {
     <section className="min-h-screen bg-black text-white px-6 py-24">
       <div className="max-w-3xl mx-auto">
         <header className="flex items-center justify-between mb-10">
-          <h1 className="text-4xl font-bold tracking-wide">Your cart</h1>
-          <Link href="/" className="text-white/70 hover:text-white tracking-wide">
+          <h1 className="text-xl md:text-4xl font-bold tracking-wide">Your cart</h1>
+          <Link href="/" className="text-white/70 hover:text-white tracking-wide text-sm md:text-base underline">
             Continue shopping
           </Link>
         </header>

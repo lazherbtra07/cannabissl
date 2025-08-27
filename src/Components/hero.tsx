@@ -52,7 +52,7 @@ export default function Hero() {
       {/* Video Section */}
       <div className="w-full px-4 sm:px-6 pb-24 mt-20 md:mt-62">
         <div className="flex justify-center">
-          <div className="relative w-[95%] md:w-[90%] h-[30vh] sm:h-[80vh] md:h-[90vh] border border-2 border-white/10 rounded-lg overflow-hidden bg-black text-white">
+          <div className="relative w-[95%] md:w-[90%] h-[30vh] sm:h-[80vh] md:h-[90vh]  border-2 border-white/10 rounded-lg overflow-hidden bg-black text-white">
             {!showVideo ? (
               <>
                 <Image
