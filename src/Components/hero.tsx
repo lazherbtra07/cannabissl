@@ -5,9 +5,12 @@ import Image from "next/image";
 import { ShoppingCart } from "lucide-react";
 import { useState } from "react";
 import { FaYoutube } from "react-icons/fa";
+import { useProductContext } from "@/context/ProductContext";
+import Header from "@/Components/Header";
 
 export default function Hero() {
   const [showVideo, setShowVideo] = useState(false);
+  const { totalQuantity } = useProductContext();
 
   const handlePlay = () => {
     setShowVideo(true);
@@ -34,18 +37,7 @@ export default function Hero() {
       </div>
 
       {/* Top Navigation */}
-      <header className="absolute top-12 left-1/2 -translate-x-1/2 w-[95%] md:w-[90%] flex items-center justify-between px-6 py-6 rounded-full bg-white/5 backdrop-blur-md ">
-        {/* Logo */}
-        <span className="text-2xl font-semibold tracking-wide font-orbitron text-white flex items-center gap-1">
-          <Image src="/logo.png" alt="Logo" width={32} height={32} />
-          <span>annabissl</span>
-        </span>
-
-        {/* Cart Icon */}
-        <button className="p-2 rounded-full hover:bg-white/10 transition" aria-label="Open cart" type="button">
-          <ShoppingCart className="h-8 w-8   text-white" />
-        </button>
-      </header>
+      <Header />
 
       {/* Hero Content */}
       <div className="w-full px-6 mt-60">

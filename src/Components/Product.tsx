@@ -5,11 +5,17 @@ import Image from "next/image";
 import { ShoppingCart } from "lucide-react";
 import { useState } from "react";
 import { Button } from "./ui/button";
+import { useProductContext } from "@/context/ProductContext";
 
 export default function ProductHero() {
   const [quantity, setQuantity] = useState(1);
   const unitPrice = 36.9;
   const totalPrice = (unitPrice * quantity).toFixed(1);
+  const { addItem } = useProductContext();
+
+  const handleAddToCart = () => {
+    addItem({ id: "dharma-oil", name: "Dharma Oil", price: unitPrice, quantity });
+  };
 
   return (
     <section className="w-full bg-black text-white py-24">
@@ -77,7 +83,7 @@ export default function ProductHero() {
 
 
             {/* Add to Cart */}
-            <Button className="flex items-center gap-4 px-12 py-7 bg-white text-black rounded-md hover:bg-gray-200 transition-colors font-medium text-lg tracking-wide" type="button" size={"lg"}>
+            <Button onClick={handleAddToCart} className="flex items-center gap-4 px-12 py-7 bg-white text-black rounded-md hover:bg-gray-200 transition-colors font-medium text-lg tracking-wide" type="button" size={"lg"}>
               <ShoppingCart className="size-7" />
               Feel it now
             </Button>
