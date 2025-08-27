@@ -41,7 +41,7 @@ export default function CartPage() {
             {/* Checkout Button (non-functional) */}
             <div className="flex justify-end pt-2">
               <Button type="button" className="bg-white hover:bg-gray-300 cursor-pointer  text-black rounded-md px-8 py-3 tracking-wide">
-                Checkoutcur
+                Checkout
               </Button>
             </div>
           </div>
