@@ -22,7 +22,7 @@ export default function ProductHero() {
   };
 
   return (
-    <section className="w-full bg-black text-white py-24">
+    <section className="w-full bg-black text-white py-10 md:py-24">
       {/* Success Alert */}
       {showAlert && (
         <div className="fixed top-6 right-6 z-50">
@@ -36,10 +36,10 @@ export default function ProductHero() {
         </div>
       )}
 
-      <div className="container mx-auto flex flex-col md:flex-row items-center  px-6">
+      <div className="container mx-auto flex flex-col md:flex-row items-center  px-4 sm:px-6">
         {/* Left side - Product Image */}
-        <div className="flex justify-center md:w-1/2">
-          <div className="relative w-[700px] h-[800px]">
+        <div className="flex justify-center md:w-1/2 mb-10 md:mb-0">
+          <div className="relative w-[90vw] max-w-[700px] h-[45vh] sm:h-[60vh] md:w-[700px] md:h-[800px]">
             <Image
               src="/product.png"
               alt="CBD Oil"
@@ -51,15 +51,15 @@ export default function ProductHero() {
         </div>
 
         {/* Right side - Content */}
-        <div className="md:w-1/2 space-y-8">
+        <div className="md:w-1/2 space-y-8 px-2 sm:px-0">
           {/* Title */}
           <div>
-            <h1 className="text-6xl font-bold tracking-wide text-white ">Dharma Oil</h1>
-            <p className="mt-3 text-3xl font-Semibold  text-white/70 tracking-wide">8% CBD, 0.2% THC</p>
+            <h1 className="text-4xl sm:text-5xl font-bold tracking-wide text-white ">Dharma Oil</h1>
+            <p className="mt-3 text-2xl sm:text-3xl font-Semibold  text-white/70 tracking-wide">8% CBD, 0.2% THC</p>
           </div>
 
           {/* Description */}
-          <p className="text-white/60 leading-relaxed text-2xl tracking-wide max-w-3xl">
+          <p className="text-white/60 leading-relaxed text-lg sm:text-2xl tracking-wide max-w-3xl">
             As above, so below; as within, so without. Born from the heart of drama, Dharma Oil is more than a
             Cannabis product—it's a journey of transformation, forgiveness, and love. Crafted by a soul who has
             danced with every emotion—hate, love, madness, and everything in between—this oil is an invitation to
@@ -67,27 +67,26 @@ export default function ProductHero() {
           </p>
 
           {/* Price + Quantity + Add to Cart */}
-          <div className="flex flex-col sm:flex-row sm:items-center gap-6 pt-6 border-t border-white/20">
+          <div className="flex flex-row flex-wrap items-center gap-3 sm:gap-6 pt-6 border-t border-white/20">
             {/* Price */}
-            <div className="min-w-[180px] text-center">
-              <div className="text-3xl font-bold text-white">€{totalPrice}</div>
-              <div className="text-white/70 text-md mt-1">[+ VAT]</div>
+            <div className="min-w-[140px] sm:min-w-[180px] text-center">
+              <div className="text-2xl sm:text-3xl font-bold text-white">€{totalPrice}</div>
+              <div className="text-white/70 text-sm sm:text-md mt-1">[+ VAT]</div>
             </div>
             {/* Quantity Selector */}
-            <div className="flex items-center gap-2 bg-transparent border border-white rounded-md px-4 py-2">
-              
+            <div className="flex h-12 items-center gap-2 bg-transparent border border-white rounded-md px-4 sm:px-4 sm:py-2">
               <Button
                 onClick={() => setQuantity((q) => Math.max(1, q - 1))}
-                className="text-white cursor-pointer text-3xl hover:bg-transparent hover:text-white"
+                className="text-white cursor-pointer text-2xl sm:text-3xl hover:bg-transparent hover:text-white"
                 variant="ghost"
                 type="button"
               >
                 −
               </Button>
-              <span className="text-2xl">{quantity}</span>
+              <span className="text-xl sm:text-2xl">{quantity}</span>
               <Button
                 onClick={() => setQuantity((q) => q + 1)}
-                className="text-white cursor-pointer  transition-colors  text-3xl hover:bg-transparent hover:text-white"
+                className="text-white cursor-pointer  transition-colors  text-2xl sm:text-3xl hover:bg-transparent hover:text-white"
                 variant="ghost"
                 type="button"
               >
@@ -96,8 +95,8 @@ export default function ProductHero() {
             </div>
 
             {/* Add to Cart */}
-            <Button onClick={handleAddToCart} className="flex items-center gap-4 px-12 py-7 bg-white text-black rounded-md hover:bg-gray-200 transition-colors font-medium text-lg tracking-wide" type="button" size={"lg"}>
-              <ShoppingCart className="size-7" />
+            <Button onClick={handleAddToCart} className="h-12 sm:h-8 w-full sm:w-auto flex items-center gap-3 sm:gap-4 px-6 sm:px-12 py-0 sm:py-6 bg-white text-black rounded-md hover:bg-gray-200 transition-colors font-medium text-base sm:text-lg tracking-wide" type="button" size={"lg"}>
+              <ShoppingCart className="size-6 sm:size-7" />
               Feel it now
             </Button>
           </div>

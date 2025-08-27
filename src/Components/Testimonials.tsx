@@ -34,26 +34,26 @@ const testimonials: Testimonial[] = [
 
 export default function Testimonials() {
   return (
-    <section className="py-20 px-6 bg-black">
+    <section className="py-20 px-4 sm:px-6 bg-black">
       <div className="max-w-[95%] mx-auto">
         {/* Main Heading */}
-        <h2 className="text-5xl md:text-5xl font-extrabold text-white/80 text-center mb-16 font-orbitron tracking-wide">
+        <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white text-center mb-12 sm:mb-16 font-orbitron tracking-wide">
           How you felt...
         </h2>
 
         {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-16 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-16">
           {testimonials.map((testimonial, index) => (
             <Card
               key={testimonial.id}
-              className={`card-surface p-6 ${
+              className={`card-surface p-5 sm:p-6 ${
                 index === 1 
                   ? 'md:col-span-1 md:scale-105 md:transform md:z-10 bg-black/30' 
                   : 'bg-black/20'
               } backdrop-blur-sm`}
             >
               {/* Profile Section */}
-              <div className="flex items-center gap-3 mb-4">
+              <div className="flex items-center gap-3 mb-3 sm:mb-4">
                 <div className={`rounded-full overflow-hidden border border-gray-600 flex-shrink-0 ${
                   index === 1 ? 'w-16 h-16' : 'w-14 h-14'
                 }`}>
@@ -66,7 +66,7 @@ export default function Testimonials() {
                   />
                 </div>
                 <div>
-                  <h3 className="text-gray-300 font-medium font-orbitron text-xl">
+                  <h3 className="text-gray-300 font-medium font-orbitron text-base">
                     {testimonial.name}
                   </h3>
                 </div>
@@ -74,7 +74,7 @@ export default function Testimonials() {
 
               {/* Testimonial Text Section */}
               <div className="">
-                <p className="text-white/50  font-extralight text-2xl">
+                <p className="text-gray-400 leading-relaxed text-base sm:text-xl">
                   {testimonial.text}
                 </p>
               </div>

@@ -41,18 +41,18 @@ export default function Hero() {
 
       {/* Hero Content */}
       <div className="w-full px-6 mt-60">
-        <h1 className="text-[110px] leading-tight font-bold text-left max-w-[70%] mx-auto tracking-wide">
+        <h1 className="text-5xl sm:text-6xl md:text-[110px] leading-tight font-bold text-left max-w-[90%] md:max-w-[70%] mx-auto tracking-wide">
           The power to love
         </h1>
-        <p className="text-[70px] leading-tight text-right max-w-[75%] mx-auto text-gray-400 font-light tracking-wide">
+        <p className="text-3xl sm:text-5xl md:text-[70px] leading-tight text-right max-w-[90%] md:max-w-[75%] mx-auto text-gray-400 font-light tracking-wide">
           is the answer
         </p>
       </div>
 
       {/* Video Section */}
-      <div className="w-full px-6 pb-24 mt-62">
+      <div className="w-full px-4 sm:px-6 pb-24 mt-20 md:mt-62">
         <div className="flex justify-center">
-          <div className="relative w-[90%] h-[90vh] border border-2 border-white/10 rounded-lg overflow-hidden bg-black text-white">
+          <div className="relative w-[95%] md:w-[90%] h-[30vh] sm:h-[80vh] md:h-[90vh] border border-2 border-white/10 rounded-lg overflow-hidden bg-black text-white">
             {!showVideo ? (
               <>
                 <Image
@@ -68,7 +68,7 @@ export default function Hero() {
                   {/* Top Gradient for Better Text Readability */}
                   <div className="absolute top-0 left-0 right-0 h-52 bg-gradient-to-b from-black via-black/60 to-transparent"></div>
                   
-                  <h1 className="text-2xl md:text-4xl font-light absolute top-8 left-1/2 -translate-x-1/2 whitespace-nowrap">
+                  <h1 className="text-xs sm:text-base md:text-4xl font-light absolute top-4 md:top-8 left-1/2 -translate-x-1/2 text-center leading-snug w-[80%] md:max-w-full">
                     New earth, The shift has begun, be part of the ascension
                   </h1>
 
@@ -77,7 +77,7 @@ export default function Hero() {
                     aria-label="Play video"
                     type="button"
                   >
-                    <FaYoutube className="h-44 w-44 text-white cursor-pointer" />
+                    <FaYoutube className="h-12 w-12 md:h-44 md:w-44 text-white cursor-pointer" />
                   </button>
                 </div>
               </>
